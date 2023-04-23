@@ -1,0 +1,38 @@
+{
+  "name": "Codebatle",
+  "version": "1.5.0",
+  "description": "Multiplayer rooms for LeetCode",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "*://leetcode.com/*",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "cookies",
+    "contextMenus",
+    "unlimitedStorage",
+    "notifications",
+    "storage",
+    "clipboardWrite"
+  ],
+  "minimum_chrome_version": "41",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": [
+        "https://leetcode.com/problems/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}
